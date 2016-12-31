@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC6931561E17D4C300C79821 /* PlaySoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6931551E17D4C300C79821 /* PlaySoundsViewController.swift */; };
+		FC6931581E17FABE00C79821 /* PlaySoundsViewController+Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6931571E17FABE00C79821 /* PlaySoundsViewController+Audio.swift */; };
 		FC81AAAE1E1681EF00B8269B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC81AAAD1E1681EF00B8269B /* AppDelegate.swift */; };
-		FC81AAB01E1681EF00B8269B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC81AAAF1E1681EF00B8269B /* ViewController.swift */; };
+		FC81AAB01E1681EF00B8269B /* RecordSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC81AAAF1E1681EF00B8269B /* RecordSoundsViewController.swift */; };
 		FC81AAB31E1681EF00B8269B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC81AAB11E1681EF00B8269B /* Main.storyboard */; };
 		FC81AAB51E1681EF00B8269B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC81AAB41E1681EF00B8269B /* Assets.xcassets */; };
 		FC81AAB81E1681EF00B8269B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC81AAB61E1681EF00B8269B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC6931551E17D4C300C79821 /* PlaySoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaySoundsViewController.swift; sourceTree = "<group>"; };
+		FC6931571E17FABE00C79821 /* PlaySoundsViewController+Audio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PlaySoundsViewController+Audio.swift"; sourceTree = "<group>"; };
 		FC81AAAA1E1681EF00B8269B /* Pitch Perfect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pitch Perfect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC81AAAD1E1681EF00B8269B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC81AAAF1E1681EF00B8269B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FC81AAAF1E1681EF00B8269B /* RecordSoundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordSoundsViewController.swift; sourceTree = "<group>"; };
 		FC81AAB21E1681EF00B8269B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC81AAB41E1681EF00B8269B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC81AAB71E1681EF00B8269B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				FC81AAAD1E1681EF00B8269B /* AppDelegate.swift */,
-				FC81AAAF1E1681EF00B8269B /* ViewController.swift */,
+				FC81AAAF1E1681EF00B8269B /* RecordSoundsViewController.swift */,
+				FC6931551E17D4C300C79821 /* PlaySoundsViewController.swift */,
+				FC6931571E17FABE00C79821 /* PlaySoundsViewController+Audio.swift */,
 				FC81AAB11E1681EF00B8269B /* Main.storyboard */,
 				FC81AAB41E1681EF00B8269B /* Assets.xcassets */,
 				FC81AAB61E1681EF00B8269B /* LaunchScreen.storyboard */,
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC81AAB01E1681EF00B8269B /* ViewController.swift in Sources */,
+				FC81AAB01E1681EF00B8269B /* RecordSoundsViewController.swift in Sources */,
+				FC6931581E17FABE00C79821 /* PlaySoundsViewController+Audio.swift in Sources */,
+				FC6931561E17D4C300C79821 /* PlaySoundsViewController.swift in Sources */,
 				FC81AAAE1E1681EF00B8269B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +310,7 @@
 				FC81AABE1E1681EF00B8269B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
