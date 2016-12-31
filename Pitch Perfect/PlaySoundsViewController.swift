@@ -19,6 +19,11 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
+    @IBOutlet weak var outerStackView: UIStackView!
+    @IBOutlet weak var effects1StackView: UIStackView!
+    @IBOutlet weak var effects2StackView: UIStackView!
+    @IBOutlet weak var effects3StackView: UIStackView!
+    
     var recordedAudioURL:URL!
     var audioFile:AVAudioFile!
     var audioEngine:AVAudioEngine!
@@ -38,6 +43,28 @@ class PlaySoundsViewController: UIViewController {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
     }
+    
+//    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+//        coordinator.animate(alongsideTransition: { [weak self] (context) in
+//            guard let `self` = self else {
+//                return
+//            }
+//            if newCollection.verticalSizeClass == .compact {
+//                self.outerStackView.axis = .horizontal
+//                self.effects1StackView.axis = .vertical
+//                self.effects2StackView.axis = .vertical
+//                self.effects3StackView.axis = .vertical
+//            }
+//            else {
+//                self.outerStackView.axis = .vertical
+//                self.effects1StackView.axis = .horizontal
+//                self.effects2StackView.axis = .horizontal
+//                self.effects3StackView.axis = .horizontal
+//            }
+//        }) { (context) in
+//            
+//        }
+//    }
     
     // MARK: Actions
     
