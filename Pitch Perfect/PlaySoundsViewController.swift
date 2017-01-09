@@ -47,6 +47,15 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.notPlaying)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // Ensure the audio is stopped when the back button is tapped. Without this, if the audio is playing when the 
+        // back button is tapped, it continues to play in the background while the record screen is visible, with no way
+        // to stop it.
+        stopAudio()
+    }
+    
+    
     // MARK: Actions
     
     //
