@@ -4,6 +4,8 @@
 //
 //  Copyright © 2016 Udacity. All rights reserved.
 //
+//  Extension on PlaySoundsViewController which provides functionality for playing audio, with simulated sound effects. 
+//
 
 import UIKit
 import AVFoundation
@@ -42,6 +44,10 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         }
     }
     
+    //
+    //  Plays the current audio file with an effect.
+    //  The effect adjusts the rate and/or pitch, with and/or without echo and reverberation.
+    //
     func playSound(rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
         
         // initialize audio engine components
@@ -106,6 +112,8 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         do {
             try audioEngine.start()
         } catch {
+            // Show an alert if the audio engine cannot be initialized. The message should (hopefully) allow the user
+            // to diagnose the problem and perform corrective actions.
             showAlert(Alerts.AudioEngineError, message: String(describing: error))
             return
         }
@@ -114,6 +122,10 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         audioPlayerNode.play()
     }
     
+    //
+    //  Stops playing the current audio. 
+    //  Called when the stop button is tapped, and when the audio stops playing.
+    //
     func stopAudio() {
         
         if let audioPlayerNode = audioPlayerNode {
@@ -134,7 +146,7 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
     // MARK: Connect List of Audio Nodes
     
-    func connectAudioNodes(_ nodes: AVAudioNode...) {
+    private func connectAudioNodes(_ nodes: AVAudioNode...) {
         for x in 0..<nodes.count-1 {
             audioEngine.connect(nodes[x], to: nodes[x+1], format: audioFile.processingFormat)
         }
@@ -142,18 +154,27 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
     
     // MARK: UI Functions
     
+    //
+    //  Update UI to enable and and disable buttons when audio is playing or stopped.
+    //  When audio is playing, all the sound effects are disabled, and the stop button is enabled.
+    //  When audio is not playing, all sound effect buttons are enabled, and the stop button is disabled.
+    //
     func configureUI(_ playState: PlayingState) {
         switch(playState) {
         case .playing:
             setPlayButtonsEnabled(false)
-            stopButton.isEnabled = true
+
         case .notPlaying:
             setPlayButtonsEnabled(true)
-            stopButton.isEnabled = false
         }
+
+        stopButton.isEnabled = (playState == .playing)
     }
     
-    func setPlayButtonsEnabled(_ enabled: Bool) {
+    //
+    //  Enable and disable all sound effect buttons as a group.
+    //
+    private func setPlayButtonsEnabled(_ enabled: Bool) {
         snailButton.isEnabled = enabled
         chipmunkButton.isEnabled = enabled
         rabbitButton.isEnabled = enabled
@@ -162,7 +183,11 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         reverbButton.isEnabled = enabled
     }
     
-    func showAlert(_ title: String, message: String) {
+    //
+    //  Show an alert. 
+    //  Used to show a message for audio engine errors.
+    //
+    private func showAlert(_ title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: Alerts.DismissAlert, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)

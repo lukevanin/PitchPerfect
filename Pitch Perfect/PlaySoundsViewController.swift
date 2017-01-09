@@ -5,6 +5,9 @@
 //  Created by Luke Van In on 2016/12/31.
 //  Copyright © 2016 Luke Van In. All rights reserved.
 //
+//  Plays a recorded file using a variety of synthesized sound effects. The sound effects are produced by adjusting the
+//  rate and pitch of the audio, as well as applying echo and reverb.
+//
 
 import UIKit
 import AVFoundation
@@ -44,30 +47,13 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.notPlaying)
     }
     
-//    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-//        coordinator.animate(alongsideTransition: { [weak self] (context) in
-//            guard let `self` = self else {
-//                return
-//            }
-//            if newCollection.verticalSizeClass == .compact {
-//                self.outerStackView.axis = .horizontal
-//                self.effects1StackView.axis = .vertical
-//                self.effects2StackView.axis = .vertical
-//                self.effects3StackView.axis = .vertical
-//            }
-//            else {
-//                self.outerStackView.axis = .vertical
-//                self.effects1StackView.axis = .horizontal
-//                self.effects2StackView.axis = .horizontal
-//                self.effects3StackView.axis = .horizontal
-//            }
-//        }) { (context) in
-//            
-//        }
-//    }
-    
     // MARK: Actions
     
+    //
+    //  Sound effect button tapped. Play the current audio file with an applied sound effect.
+    //  The button is determined by the tag property value set in interface builder, which corresponds to a ButtonType
+    //  enum value.
+    //
     @IBAction func playSoundForButton(_ sender: UIButton) {
         print("Play Sound Button Pressed")
         switch(ButtonType(rawValue: sender.tag)!) {
@@ -88,6 +74,9 @@ class PlaySoundsViewController: UIViewController {
         configureUI(.playing)
     }
     
+    //
+    //  Stop button tapped. Stop playing audio.
+    //
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         print("Stop Audio Button Pressed")
         stopAudio()
